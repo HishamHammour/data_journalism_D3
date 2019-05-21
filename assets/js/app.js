@@ -69,9 +69,9 @@ d3.csv(file).then(function(data) {
     .attr("cx", d => xLinearScale(d.poverty))
     .attr("cy", d => yLinearScale(d.healthcare))
     .attr("r", "15")
-    .attr("fill", "lightBlue")
-    .attr("opacity", ".75")
-    .attr("stroke", "darkGrey")
+    .attr("fill", "green")
+    .attr("opacity", ".50")
+    .attr("stroke", "black")
   
 
     // initialize toolTip
@@ -79,7 +79,7 @@ d3.csv(file).then(function(data) {
         .attr("class", "d3-tip")
         .offset([80, -60])
         .html(function(d) {
-        return (`${d.state}<lr><br>In Poverty: ${d.poverty}%<br>No Health Insurance: ${d.noHealthInsurance}%`);
+        return (`${d.state}<lr><br>In Poverty: ${d.poverty}%<br> Health Insurance: ${d.healthcare}%`);
         });
 
     // create toolTip in chart 
@@ -104,9 +104,9 @@ d3.csv(file).then(function(data) {
     .text(function(d) { return d.abbr;})
     .attr("dy", ".5em")
     .attr("dx", "-.5em")
-    .attr("fill", "darkGrey")
+    .attr("fill", "black")
     .attr("text-anchor", "center")
-    .attr("font-size", 9);
+    .attr("font-size", 10);
 
     // create x-axis and y-axis labels
     chartGroup.append("text")
@@ -115,7 +115,7 @@ d3.csv(file).then(function(data) {
     .attr("x", 0 - (height / 2) - 40)
     .attr("dy", "1em")
     .attr("class", "axisText")
-    .text("No Healthcare (%)");
+    .text("Lacks Healthcare (%)");
 
     // append x-axis text
     chartGroup.append("text")
